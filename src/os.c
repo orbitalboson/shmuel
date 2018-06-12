@@ -1,7 +1,7 @@
 /*
  * os.c
  *
- *  Created on: 11 june 2018
+ *  Created on: 11 June 2018
  *      Author: OrbitalBoson
  */
 
