@@ -11,6 +11,7 @@
 
 #include "sharedmemory.h"
 #include "ringbuffer.h"
+#include "utils.h"
 
 int main(int argc, char * argv[])
 {
@@ -21,13 +22,16 @@ int main(int argc, char * argv[])
   SharedMemoryBlock_printStatus(r);
 
   RingBuffer rb;
-  RingBuffer_init(&rb, r, 512);
+  RingBuffer_init(&rb, r, 64);
 
-  char buf[512];
+  char buf[64];
+  memset((void *)&buf, 0, sizeof(buf));
 
   for (int i=0; i<10; i++){
-      RingBuffer_put(&rb, buf, 512);
+      RingBuffer_put(&rb, buf, 64);
   }
+
+  getchar();
 
   SharedMemoryBlock_destroy(r);
 
