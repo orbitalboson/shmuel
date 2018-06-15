@@ -57,7 +57,7 @@ RingBuffer_put(RingBuffer * rb, void * buf, size_t size)
   rbf_header.main.id = rb->id;
   rbf_header.main.payload_size = size;
 
-  uint8_t crc8res = Crc8((void *)&rbf_header, 0, sizeof(RBFrameHeaderMain));
+  uint8_t crc8res = Crc8((void *)&rbf_header, 0xFF, sizeof(RBFrameHeaderMain));
   crc8res = Crc8(buf, crc8res, size);
 
   rbf_header.crc8 = crc8res;

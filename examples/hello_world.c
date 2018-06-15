@@ -24,10 +24,9 @@ int main(int argc, char * argv[])
   RingBuffer rb;
   RingBuffer_init(&rb, r, 64);
 
-  char buf[64];
-  memset((void *)&buf, 0, sizeof(buf));
+  char buf[64] = {};
 
-  for (int i=0; i<10; i++){
+  for (int i=0; i<4; i++){
       RingBuffer_put(&rb, buf, 64);
   }
 
